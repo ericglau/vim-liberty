@@ -1,14 +1,29 @@
 # vim-liberty
 
+1. `git clone https://github.com/OpenLiberty/liberty-language-server`
 
-1. Install vim-plug https://github.com/junegunn/vim-plug
+2. `cd liberty-language-server`
+
+3. `./mvnw package`
+
+4. `cd ..`
+
+5. `git clone https://github.com/eclipse/lemminx`
+
+6. `cd lemminx`
+
+7. `.mvnw package -DskipTests`
+
+8. Copy `liberty-language-server/lemminx-liberty/target/lemminx-liberty-1.0-SNAPSHOT-jar-with-dependencies.jar` and `lemminx/org.eclipse.lemminx/target/org.eclipse.lemminx-uber.jar` to a common folder.
+
+9. Install vim-plug https://github.com/junegunn/vim-plug
 
 ```
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-2. Edit ~/.vimrc
+10. Edit ~/.vimrc (edit path in `let g:LanguageClient_serverCommands` with the folder in step 8)
 
 ```
 " Specify a directory for plugins
@@ -44,6 +59,6 @@ nnoremap <silent> <F4> :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <F3> :call LanguageClient#textDocument_completion()<CR>
 ```
 
-3. Restart Vim and run `:PlugInstall`
+11. Restart Vim and run `:PlugInstall`
 
-4. Open a Liberty server.xml with Vim
+12. Open a Liberty server.xml with Vim e.g. https://github.com/OpenLiberty/demo-devmode/blob/master/src/main/liberty/config/server.xml
