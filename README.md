@@ -1,5 +1,7 @@
 # vim-liberty
 
+The following instructions are experimental and not supported.
+
 1. `git clone https://github.com/OpenLiberty/liberty-language-server`
 
 2. `cd liberty-language-server`
