@@ -14,7 +14,7 @@
 
 7. `.mvnw package -DskipTests`
 
-8. Copy `liberty-language-server/lemminx-liberty/target/lemminx-liberty-1.0-SNAPSHOT-jar-with-dependencies.jar` and `lemminx/org.eclipse.lemminx/target/org.eclipse.lemminx-uber.jar` to a common folder.
+8. Copy `liberty-language-server/lemminx-liberty/target/lemminx-liberty-1.0-SNAPSHOT-jar-with-dependencies.jar` and `lemminx/org.eclipse.lemminx/target/org.eclipse.lemminx-uber.jar` to a common folder e.g. `~/liberty-ls/jars.
 
 9. Install vim-plug https://github.com/junegunn/vim-plug
 
@@ -48,17 +48,17 @@ au BufReadPost server.xml set filetype=liberty
 au Filetype liberty set syntax=xml
 
 let g:LanguageClient_serverCommands = {
-\ 'liberty': ['java', '-cp', '/Users/eric/git/vim-liberty/jars/*', 'org.eclipse.lemminx.XMLServerLauncher']
+\ 'liberty': ['java', '-cp', '~/liberty-ls/jars/*', 'org.eclipse.lemminx.XMLServerLauncher']
                         \ }
 
 let g:LanguageClient_loggingLevel = 'DEBUG'
-let g:LanguageClient_loggingFile =  expand('~/.vim/LanguageClient.log')
-let g:LanguageClient_serverStderr = expand('~/.vim/LanguageServer.log')
+let g:LanguageClient_loggingFile =  expand('~/.vim/LibertyLanguageClient.log')
+let g:LanguageClient_serverStderr = expand('~/.vim/LibertyLanguageServer.log')
 
 nnoremap <silent> <F4> :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> <F3> :call LanguageClient#textDocument_completion()<CR>
 ```
 
-11. Restart Vim and run `:PlugInstall`
+11. Run `vim +PlugInstall +qall`
 
 12. Open a Liberty server.xml with Vim e.g. https://github.com/OpenLiberty/demo-devmode/blob/master/src/main/liberty/config/server.xml
